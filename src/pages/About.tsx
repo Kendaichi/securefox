@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import FoxBackground from '@/components/FoxBackground';
 import StatsBar from '@/components/StatsBar';
 import { Shield } from 'lucide-react';
@@ -80,6 +81,131 @@ const About = () => {
         </div>
       </section>
 
+      {/* Our Story */}
+      <section className="bg-sf-dark py-[120px]">
+        <div className="max-w-[1100px] mx-auto px-6 md:px-10">
+          <div className="max-w-[760px] mx-auto">
+            <div className="section-label">Our Story</div>
+            <h2 className="font-rajdhani font-700 text-3xl md:text-4xl mb-8">
+              HOW SECUREFOX <span className="glow-text">CAME TO BE.</span>
+            </h2>
+            <div className="space-y-6 font-barlow font-300 text-[1.1rem] leading-[1.9] text-sf-text/65">
+              <p>SecureFox Security Services was founded on a straightforward observation: Melbourne's security industry was full of companies providing mediocre service at mediocre prices, and clients were either settling for it or paying premium rates for premium-sounding names that delivered the same mediocre reality.</p>
+              <p>Chris Tsavdaris had spent over two decades in environments where security wasn't a line item on a budget — it was a matter of life and safety. Military operations, high-risk civilian deployments, and complex close-protection assignments had taught him exactly what professional security looks like when the stakes are real.</p>
+              <p>When he founded SecureFox, he applied that same standard to the Melbourne commercial security market. The result was a company built around three principles that haven't changed since day one: hire only the best people, train them properly, and never compromise on the quality of the service — regardless of the size of the contract.</p>
+              <p>Those principles are easy to say and hard to live by. They mean turning away clients whose requirements can't be met without compromising standards. They mean rejecting the majority of security officer applicants. They mean investing in ongoing training and development rather than just maintaining minimum industry compliance.</p>
+              <p>They also mean that when a SecureFox client calls at 2am with an urgent security issue, they get the same quality of response they'd expect at 2pm. That consistency — that reliability — is what has built SecureFox's reputation as one of Melbourne's most trusted security companies.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values */}
+      <section className="bg-sf-surface py-[120px]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10">
+          <div className="section-label">What We Stand For</div>
+          <h2 className="font-rajdhani font-700 text-3xl md:text-4xl mb-12">
+            THE PRINCIPLES THAT DRIVE <br className="hidden md:block" />
+            <span className="glow-text">EVERYTHING WE DO.</span>
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                num: '01',
+                title: 'PREVENTION OVER REACTION',
+                body: [
+                  'Security that works is security that prevents incidents from occurring in the first place. Reactive security — showing up after something has gone wrong — is the lowest standard in our industry.',
+                  'SecureFox trains its officers in criminal psychology, behavioural analysis, and pre-incident indicator recognition precisely because we believe the highest value a security company can provide is the incident that never happened. Our officers don\'t wait for situations to escalate. They identify, assess, and intervene early — reducing risk before it becomes reality.',
+                  'This prevention-first philosophy shapes everything: how we conduct risk assessments, how we write site protocols, how we position officers, and how we train and develop our team.',
+                ],
+              },
+              {
+                num: '02',
+                title: 'PEOPLE ABOVE PROCESS',
+                body: [
+                  'Security is ultimately about protecting people. Not assets, not buildings, not insurance premiums — people. Their physical safety, their dignity, their peace of mind, and their ability to go about their lives without fear.',
+                  'Every decision SecureFox makes flows from this principle. We hire officers who understand that their role is fundamentally human — who can read a situation with empathy as well as authority, and who know that how you handle something matters as much as what you do.',
+                  'Systems, protocols, and processes exist to support good people making good decisions. They are tools, not substitutes for judgment. We hire for judgment first — and build the systems around it.',
+                ],
+              },
+              {
+                num: '03',
+                title: 'INTEGRITY WITHOUT COMPROMISE',
+                body: [
+                  'We hold a Victoria Police security licence. We operate in environments where our clients trust us with access to their most sensitive spaces, their most valuable assets, and the safety of the people in their care. That trust is not taken lightly.',
+                  'Integrity at SecureFox means we report accurately — including when that\'s uncomfortable. It means we tell clients when we think their current security approach has gaps, even when they don\'t want to hear it. It means we never inflate incident reports, never pad proposals with services that aren\'t needed, and never compromise on licensing or vetting to fill a roster gap.',
+                  'Our licence, our reputation, and our clients\' trust are the foundation of this business. We protect them the same way we protect everything else — fiercely and without exception.',
+                ],
+              },
+            ].map((v, i) => (
+              <div key={i} className="bg-sf-card border border-sf-white-8 p-8 md:p-10 relative overflow-hidden border-t-2 border-t-sf-green">
+                <div className="absolute top-4 right-6 font-rajdhani font-700 text-sf-green/[0.12] text-[5rem] leading-none select-none pointer-events-none">
+                  {v.num}
+                </div>
+                <div className="relative z-10">
+                  <h3 className="font-rajdhani font-700 text-lg mb-6">{v.title}</h3>
+                  <div className="space-y-4">
+                    {v.body.map((p, j) => (
+                      <p key={j} className="font-barlow font-300 text-sm text-sf-text/50 leading-[1.9]">{p}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet the Team */}
+      <section className="bg-sf-dark py-[120px]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10">
+          <div className="section-label">Leadership</div>
+          <h2 className="font-rajdhani font-700 text-3xl md:text-4xl mb-4">
+            THE PEOPLE BEHIND <br className="hidden md:block" />
+            <span className="glow-text">YOUR SECURITY.</span>
+          </h2>
+          <p className="font-barlow font-300 text-sf-text/50 max-w-[560px] mb-12 leading-relaxed">
+            SecureFox is led by professionals with real operational experience — not just management credentials.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                initials: 'CT',
+                name: 'Chris Tsavdaris',
+                title: 'Founder & Director',
+                bio: 'Chris founded SecureFox after more than 20 years of operational security experience spanning military service and complex civilian deployments. His hands-on approach to leadership means he remains personally involved in major client onboarding, risk assessment methodology, and the professional development of SecureFox\'s security officer team. Chris\'s philosophy — that great security should feel invisible — defines the standard SecureFox holds itself to every single day.',
+              },
+              {
+                initials: 'SF',
+                name: 'Operations Team',
+                title: 'Senior Operations',
+                bio: 'SecureFox\'s operations team brings together decades of combined experience across corporate security, event management, residential building management, and law enforcement liaison. Available 24 hours a day, 7 days a week, our operations team is the constant behind every deployment — briefing officers, managing client communications, responding to incidents, and ensuring that every SecureFox engagement runs exactly as planned.',
+              },
+            ].map((member, i) => (
+              <div key={i} className="bg-sf-card border border-sf-white-8 p-8 md:p-10">
+                <div className="flex items-center gap-5 mb-6">
+                  <div
+                    className="w-16 h-16 flex items-center justify-center font-rajdhani font-700 text-xl text-sf-dark bg-gradient-to-br from-sf-green to-sf-green/60"
+                    style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
+                  >
+                    {member.initials}
+                  </div>
+                  <div>
+                    <div className="font-rajdhani font-700 text-lg">{member.name}</div>
+                    <div className="text-sf-green text-xs font-barlow font-500 uppercase tracking-widest">
+                      {member.title}
+                    </div>
+                  </div>
+                </div>
+                <p className="font-barlow font-300 text-sm text-sf-text/60 leading-[1.9]">{member.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Mission */}
       <section className="bg-sf-surface py-20">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-16 items-start">
@@ -111,6 +237,27 @@ const About = () => {
 
       {/* Stats */}
       <StatsBar variant="cards" />
+
+      {/* CTA Band */}
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #242332, #0e0d1a)' }}>
+        <div className="max-w-[700px] mx-auto px-6 md:px-10 text-center">
+          <h2 className="font-rajdhani font-700 text-2xl md:text-4xl mb-4">
+            READY TO WORK WITH <br className="hidden md:block" />
+            <span className="glow-text">MELBOURNE'S BEST?</span>
+          </h2>
+          <p className="font-barlow font-300 text-sf-text/50 mb-8 leading-relaxed">
+            Join the Melbourne businesses, building managers, and event organisers who trust SecureFox to protect what matters most.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/services" className="btn-clip btn-clip-outline">
+              View Our Services
+            </Link>
+            <Link to="/contact" className="btn-clip btn-clip-filled">
+              Get In Touch
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
