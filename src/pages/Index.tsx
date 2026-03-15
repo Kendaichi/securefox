@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Eye, Building, DoorOpen, ShieldCheck, BadgeCheck, Brain, Clock, SlidersHorizontal, Handshake, ChevronDown } from 'lucide-react';
 import ParticleCanvas from '@/components/ParticleCanvas';
-import FoxBackground from '@/components/FoxBackground';
+import Fox3D from '@/components/Fox3D';
 import StatsBar, { TrustStrip } from '@/components/StatsBar';
 
 const services = [
