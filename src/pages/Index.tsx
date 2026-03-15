@@ -80,7 +80,7 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden bg-sf-dark">
         <ParticleCanvas />
         <div className="grid-overlay" />
-        <FoxBackground />
+        <Fox3D />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full pt-24 pb-16">
           <div className="max-w-2xl">
