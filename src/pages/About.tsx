@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import FoxBackground from '@/components/FoxBackground';
+import Fox3D from '@/components/Fox3D';
 import StatsBar from '@/components/StatsBar';
 import { Shield } from 'lucide-react';
 
