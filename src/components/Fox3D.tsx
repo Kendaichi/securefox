@@ -41,11 +41,11 @@ const Fox3D = ({ className = "" }: Fox3DProps) => (
       <directionalLight position={[-3, 2, 3]} intensity={4} color="#ffffff" />
       <pointLight position={[0, 0, -4]} intensity={30} color="#15803d" />
 
-      <style>{`@keyframes foxFadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
       <Suspense fallback={null}>
         <FoxModel />
       </Suspense>
     </Canvas>
+    <style>{`@keyframes foxFadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
   </div>
 );
 
