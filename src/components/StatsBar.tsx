@@ -19,7 +19,7 @@ const StatsBar = ({ variant = 'bar' }: StatsBarProps) => {
           {stats.map((s, i) => (
             <div key={i} className="bg-sf-card border border-sf-green/10 p-8 text-center">
               <div className="font-rajdhani text-3xl md:text-4xl font-700 text-sf-green mb-2">{s.number}</div>
-              <div className="font-barlow text-xs text-sf-text/50 uppercase tracking-wider">{s.label}</div>
+              <div className="font-barlow text-xs text-sf-text/70 uppercase tracking-wider">{s.label}</div>
             </div>
           ))}
         </div>
@@ -33,12 +33,12 @@ const StatsBar = ({ variant = 'bar' }: StatsBarProps) => {
         {stats.map((s, i) => (
           <div
             key={i}
-            className={`py-8 px-6 text-center ${
+            className={`py-8 px-6 text-center group transition-colors hover:bg-sf-green/5 ${
               i < stats.length - 1 ? 'md:border-r border-sf-green/10' : ''
             }`}
           >
-            <div className="font-rajdhani text-3xl md:text-4xl font-700 text-sf-green mb-1">{s.number}</div>
-            <div className="font-barlow text-xs text-sf-text/50 uppercase tracking-wider">{s.label}</div>
+            <div className="font-rajdhani text-3xl md:text-4xl font-700 text-sf-green mb-1 group-hover:text-shadow-glow transition-all">{s.number}</div>
+            <div className="font-barlow text-xs text-sf-text/70 uppercase tracking-wider">{s.label}</div>
           </div>
         ))}
       </div>
@@ -50,7 +50,7 @@ export const TrustStrip = () => (
   <section className="bg-sf-surface py-6 border-y border-sf-green/10">
     <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-center gap-3 text-center">
       <Shield className="text-sf-green shrink-0" size={18} />
-      <p className="font-barlow text-xs text-sf-text/40 uppercase tracking-widest">
+      <p className="font-barlow text-xs text-sf-text/55 uppercase tracking-widest">
         Fully licensed by Victoria Police Security · License: 946-182-80S · Open 24 Hours
       </p>
     </div>

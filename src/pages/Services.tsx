@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Shield, Eye, Building, DoorOpen, Store, Home, Settings } from 'lucide-react';
+import FadeIn from '@/components/FadeIn';
+import Fox3D from '@/components/Fox3D';
 
 const allServices = [
   {
@@ -149,6 +151,7 @@ const Services = () => {
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-sf-dark">
         <div className="grid-overlay" />
+        <Fox3D />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 w-full pt-32 pb-16">
           <div className="max-w-2xl">
             <div className="section-label hero-anim hero-anim-1">What We Do</div>
@@ -160,7 +163,7 @@ const Services = () => {
               <br />
               <span className="glow-text">SOLUTIONS.</span>
             </h1>
-            <p className="hero-anim hero-anim-3 mt-6 text-sf-text/50 font-barlow font-300 text-lg max-w-lg leading-relaxed">
+            <p className="hero-anim hero-anim-3 mt-6 text-sf-text/70 font-barlow font-300 text-lg max-w-lg leading-relaxed">
               Every environment demands a different approach. Our tailored security frameworks are built
               around your unique risk profile.
             </p>
@@ -169,20 +172,24 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-sf-dark py-24">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10">
+      <section className="bg-sf-dark py-24 relative overflow-hidden">
+        <div className="ambient-blob ambient-blob-tl" />
+        <div className="ambient-blob ambient-blob-br" />
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 relative z-10">
           <div
             className="grid md:grid-cols-3 gap-[1px]"
             style={{ background: 'rgba(255,255,255,0.04)' }}
           >
             {allServices.map((s, i) => (
-              <div key={i} className="service-card">
-                <div className="text-sf-green mb-5">{s.icon}</div>
-                <h3 className="font-rajdhani font-700 text-lg mb-3 uppercase tracking-wide">
-                  {s.title}
-                </h3>
-                <p className="font-barlow font-300 text-sm text-sf-text/50 leading-relaxed">{s.body}</p>
-              </div>
+              <FadeIn key={i} delay={i * 0.5}>
+                <div className="service-card h-full">
+                  <div className="text-sf-green mb-5">{s.icon}</div>
+                  <h3 className="font-rajdhani font-700 text-lg mb-3 uppercase tracking-wide">
+                    {s.title}
+                  </h3>
+                  <p className="font-barlow font-300 text-sm text-sf-text/70 leading-relaxed">{s.body}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -193,29 +200,29 @@ const Services = () => {
         <section key={i} className={`${svc.bg} py-[120px]`}>
           <div className="max-w-[1200px] mx-auto px-6 md:px-10">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-              <div>
+              <FadeIn>
                 <div className="section-label">{svc.label}</div>
                 <h2 className="font-rajdhani font-700 text-2xl md:text-4xl mb-8">{svc.heading}</h2>
                 <div className="space-y-5">
                   {svc.body.map((p, j) => (
-                    <p key={j} className="font-barlow font-300 text-[1.1rem] leading-[1.9] text-sf-text/65">{p}</p>
+                    <p key={j} className="font-barlow font-300 text-[1.1rem] leading-[1.9] text-sf-text/80">{p}</p>
                   ))}
                 </div>
                 <div className="mt-8 space-y-3">
                   {svc.bullets.map((b, j) => (
                     <div key={j} className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-sf-green mt-2 shrink-0" />
-                      <p className="font-barlow font-300 text-sm text-sf-text/60">{b}</p>
+                      <p className="font-barlow font-300 text-sm text-sf-text/75">{b}</p>
                     </div>
                   ))}
                 </div>
-              </div>
-              <div className="hidden md:block">
+              </FadeIn>
+              <FadeIn delay={1} className="hidden md:block">
                 <div className="aspect-[4/5] rounded-none bg-gradient-to-br from-sf-card to-sf-dark border border-sf-white-8 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-sf-green/5 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-sf-green/3 to-transparent" />
                 </div>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </section>
@@ -224,17 +231,19 @@ const Services = () => {
       {/* CTA Band */}
       <section className="bg-sf-surface border-y border-sf-green/15 py-16">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 text-center">
-          <h2 className="font-rajdhani font-700 text-2xl md:text-3xl mb-8">
-            Ready to secure your environment?
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="btn-clip btn-clip-filled">
-              Get In Touch
-            </Link>
-            <a href="tel:1300911369" className="btn-clip btn-clip-outline">
-              Call 1300 911 369
-            </a>
-          </div>
+          <FadeIn>
+            <h2 className="font-rajdhani font-700 text-2xl md:text-3xl mb-8">
+              Ready to secure your environment?
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact" className="btn-clip btn-clip-filled">
+                Get In Touch
+              </Link>
+              <a href="tel:1300911369" className="btn-clip btn-clip-outline">
+                Call 1300 911 369
+              </a>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </>

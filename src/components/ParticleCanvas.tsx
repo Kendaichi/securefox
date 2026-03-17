@@ -19,7 +19,7 @@ const ParticleCanvas = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 90; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -39,7 +39,7 @@ const ParticleCanvas = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(18,243,8,0.35)';
+        ctx.fillStyle = 'rgba(18,243,8,0.6)';
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -47,12 +47,12 @@ const ParticleCanvas = () => {
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < 160) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(18,243,8,${0.12 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(18,243,8,${0.35 * (1 - dist / 160)})`;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
