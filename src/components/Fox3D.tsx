@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
@@ -28,7 +28,7 @@ const Fox3D = ({ className = "" }: Fox3DProps) => (
       right-0 w-full opacity-20
       md:w-[50vw] md:opacity-100
       ${className}`}
-    style={{ height: "100vh", zIndex: 0 }}
+    style={{ height: "100vh", zIndex: 0, animation: "foxFadeIn 1.2s ease forwards" }}
   >
     <Canvas
       camera={{ position: [0, 0, 6], fov: 38 }}
@@ -41,7 +41,10 @@ const Fox3D = ({ className = "" }: Fox3DProps) => (
       <directionalLight position={[-3, 2, 3]} intensity={4} color="#ffffff" />
       <pointLight position={[0, 0, -4]} intensity={30} color="#15803d" />
 
-      <FoxModel />
+      <style>{`@keyframes foxFadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
+      <Suspense fallback={null}>
+        <FoxModel />
+      </Suspense>
     </Canvas>
   </div>
 );
