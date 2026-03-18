@@ -45,6 +45,14 @@ const Fox3D = ({ className = "" }: Fox3DProps) => (
         <FoxModel />
       </Suspense>
     </Canvas>
+    {/* Mobile-only gradient overlay to improve text readability */}
+    <div
+      className="absolute inset-0 md:hidden"
+      style={{
+        background: "linear-gradient(to bottom, transparent 30%, rgba(14,13,26,0.85) 70%, #0e0d1a 100%)",
+        zIndex: 1,
+      }}
+    />
     <style>{`@keyframes foxFadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
   </div>
 );

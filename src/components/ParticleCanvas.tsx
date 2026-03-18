@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 
 const ParticleCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -6,7 +6,7 @@ const ParticleCanvas = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animId: number;
@@ -17,7 +17,7 @@ const ParticleCanvas = () => {
       canvas.height = canvas.offsetHeight;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
 
     for (let i = 0; i < 90; i++) {
       particles.push({
@@ -30,6 +30,9 @@ const ParticleCanvas = () => {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isMobile = window.innerWidth < 768;
+      const dotOpacity = isMobile ? 0.3 : 0.6;
+      const lineMaxOpacity = isMobile ? 0.08 : 0.35;
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.x += p.vx;
@@ -39,7 +42,7 @@ const ParticleCanvas = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(18,243,8,0.6)';
+        ctx.fillStyle = `rgba(18,243,8,${dotOpacity})`;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -51,7 +54,9 @@ const ParticleCanvas = () => {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(18,243,8,${0.35 * (1 - dist / 160)})`;
+            ctx.strokeStyle = `rgba(18,243,8,${
+              lineMaxOpacity * (1 - dist / 160)
+            })`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -63,7 +68,7 @@ const ParticleCanvas = () => {
 
     return () => {
       cancelAnimationFrame(animId);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
